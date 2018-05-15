@@ -1,0 +1,6 @@
+-Utente (idUtente--, nomeUtente, idade, dataNascimento, morada, tipoSangue, peso, altura, medicacao, alergias, problemasSaude, obs);
+-Enfermeiro (idEnfermeiro--, nomeEnfermeiro, idade, nacionalidade, dataNascimento, dataAdmissao, obs);
+Triagem (idTriagem--, cor, datahora, idEnfermeiro---, idUtente---, obs);
+TriagemManchester(cor, obs);
+LocalTriagem (idSala--, tipoSala);
+
