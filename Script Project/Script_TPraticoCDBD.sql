@@ -30,9 +30,8 @@ sexo CHAR(1) NOT NULL, obs VARCHAR(500));
 
 -- Tabela Enfermeiro
 CREATE TABLE triagemhospleiriag4.enfermeiro
-(id INT AUTO_INCREMENT PRIMARY KEY, nome_enfermeiro VARCHAR(20) NOT NULL, apelidos_enfermeiro VARCHAR(80) NOT NULL, 
-data_nasc_enfermeiro VARCHAR(11), morada_enfermeiro VARCHAR(100) NOT NULL, cod_postal_enfermeiro VARCHAR(50) NOT NULL,  
-naturalidade_enfermeiro VARCHAR(100) NOT NULL, nacionalidade_enfermeiro VARCHAR(100) NOT NULL, data_admisaao VARCHAR(11));
+(id INT AUTO_INCREMENT PRIMARY KEY, nome_enfermeiro VARCHAR(20) NOT NULL, apelidos_enfermeiro VARCHAR(80) NOT NULL, ced_prof INT(9) NOT NULL,   
+naturalidade_enfermeiro VARCHAR(100) NOT NULL, nacionalidade_enfermeiro VARCHAR(100) NOT NULL, data_admissao VARCHAR(11));
 
 -- Tabela Sala
 CREATE TABLE triagemhospleiriag4.sala
@@ -65,6 +64,7 @@ CREATE TABLE triagemhospleiriag4.triagem_manchester_info
 933456758, "manuela.rodrigues.alves@outlook.com", "A+", 190, null, null, null, "F", "Teve asma até aos 10 anos");
 
 
--- INSERT INTO triagemhospleiriag4.enfermeiro(id,nome_enfermeiro,apelidos_enfermeiro,data_nasc_enfermeiro,morada_enfermeiro,cod_postal_enfermeiro,naturalidade)
--- VALUES
--- ()
+INSERT INTO triagemhospleiriag4.enfermeiro(id,nome_enfermeiro,apelidos_enfermeiro,ced_prof,
+naturalidade_enfermeiro,nacionalidade_enfermeiro,data_admissao)
+VALUES
+( )
