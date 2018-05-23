@@ -1,5 +1,5 @@
 /*
-CDBD_PL1_T6_G?
+CDBD_PL1_T6_G22
 Sistema de Base de Dados para as urgências do "Hospital de Leiria" baseada na Triagem de Manchester
 Daniel Batista, estudante Nº 2171836
 Diogo Alpendre, estudante Nº 2170324
@@ -7,21 +7,21 @@ Diogo Alpendre, estudante Nº 2170324
 
 -- Criação da base de dados
 
-DROP DATABASE IF EXISTS triagemhospleiriag4;
-CREATE DATABASE triagemhospleiriag4;
+DROP DATABASE IF EXISTS triagemhospleiriag22;
+CREATE DATABASE triagemhospleiriag22;
 
 -- Drops the tables
 
-DROP TABLE IF EXISTS triagemhospleiriag4.utente;
-DROP TABLE IF EXISTS triagemhospleiriag4.enfermeiro;
-DROP TABLE IF EXISTS triagemhospleiriag4.sala;
-DROP TABLE IF EXISTS triagemhospleiriag4.triagem_manchester_info;
-DROP TABLE IF EXISTS triagemhospleiriag4.triagem;
+DROP TABLE IF EXISTS triagemhospleiriag22.utente;
+DROP TABLE IF EXISTS triagemhospleiriag22.enfermeiro;
+DROP TABLE IF EXISTS triagemhospleiriag22.sala;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem_manchester_info;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem;
 
 -- Criação das tabelas
 
 -- Tabela Utente
-CREATE TABLE triagemhospleiriag4.utente
+CREATE TABLE triagemhospleiriag22.utente
 (id INT AUTO_INCREMENT PRIMARY KEY, cc INT NOT NULL, nif INT(9) NOT NULL, nsns INT NOT NULL, nome_utente VARCHAR(20) NOT NULL, 
 apelidos_utente VARCHAR(80) NOT NULL, data_nasc_utente VARCHAR(11) NOT NULL, morada_utente VARCHAR(100) NOT NULL, 
 cod_postal_utente VARCHAR(50) NOT NULL, naturalidade_utente VARCHAR(100) NOT NULL, nacionalidade_utente VARCHAR(100) NOT NULL, telemovel INT(9) NOT NULL,
@@ -29,27 +29,27 @@ email VARCHAR(100) NOT NULL, tipo_sangue VARCHAR(3) NOT NULL, altura INT(3) NOT 
 sexo CHAR(1) NOT NULL, obs VARCHAR(500));
 
 -- Tabela Enfermeiro
-CREATE TABLE triagemhospleiriag4.enfermeiro
+CREATE TABLE triagemhospleiriag22.enfermeiro
 (id INT AUTO_INCREMENT PRIMARY KEY, nome_enfermeiro VARCHAR(20) NOT NULL, apelidos_enfermeiro VARCHAR(80) NOT NULL, ced_prof INT(9) NOT NULL,   
 naturalidade_enfermeiro VARCHAR(100) NOT NULL, nacionalidade_enfermeiro VARCHAR(100) NOT NULL, data_admissao VARCHAR(11));
 
 -- Tabela Sala
-CREATE TABLE triagemhospleiriag4.sala
+CREATE TABLE triagemhospleiriag22.sala
 (id INT AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(50) NOT NULL, obs VARCHAR(500));
 
 -- Tabela Triagem de Manchester (armazena a cor e a descrição de cada cor)
-CREATE TABLE triagemhospleiriag4.triagem_manchester_info
+CREATE TABLE triagemhospleiriag22.triagem_manchester_info
 (cor VARCHAR(10) PRIMARY KEY, descricao VARCHAR(500));
 
 -- Tabela Triagem (processo)
- CREATE TABLE triagemhospleiriag4.triagem
+ CREATE TABLE triagemhospleiriag22.triagem
  (id INT AUTO_INCREMENT PRIMARY KEY, data_hora VARCHAR(50) NOT NULL, cor_triagem VARCHAR(10), 
  id_utente INT, id_enfermeiro INT, id_sala INT, obs VARCHAR(500), FOREIGN KEY (cor_triagem) REFERENCES triagem_manchester_info(cor),
  FOREIGN KEY (id_utente) REFERENCES utente(id), FOREIGN KEY (id_enfermeiro) REFERENCES enfermeiro(id), 
  FOREIGN KEY (id_sala) REFERENCES sala(id));
   
  -- Inserir dados na tabela utente
- INSERT INTO triagemhospleiriag4.utente (id, cc, nif, nsns, nome_utente, apelidos_utente, data_nasc_utente, morada_utente, cod_postal_utente,
+ INSERT INTO triagemhospleiriag22.utente (id, cc, nif, nsns, nome_utente, apelidos_utente, data_nasc_utente, morada_utente, cod_postal_utente,
  naturalidade_utente, nacionalidade_utente, telemovel, email, tipo_sangue, altura, problemas_saude, medicacao, alergias, sexo, obs)
  VALUES
  (null, 13847293, 278593734, 17485968, "António", "Duarte Arnaut", "28/01/1936", "Rua da Cumeeira", "1563-345 Coimbra", "Portugal",
@@ -64,7 +64,7 @@ CREATE TABLE triagemhospleiriag4.triagem_manchester_info
 933456758, "manuela.rodrigues.alves@outlook.com", "A+", 190, null, null, null, "F", "Teve asma até aos 10 anos");
 
 
-INSERT INTO triagemhospleiriag4.enfermeiro(id,nome_enfermeiro,apelidos_enfermeiro,ced_prof,
+INSERT INTO triagemhospleiriag22.enfermeiro(id,nome_enfermeiro,apelidos_enfermeiro,ced_prof,
 naturalidade_enfermeiro,nacionalidade_enfermeiro,data_admissao)
 VALUES
 ( )
