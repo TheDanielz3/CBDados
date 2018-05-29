@@ -94,4 +94,17 @@ VALUES
 
 -- Consultas
 
--- Subconsultas
+-- 2 Consultas com grupos e joins
+SELECT DISTINCT id_enfermeiro FROM triagem_hosp_leiria_g22.triagem;
+-- Seleciona os IDs dos enfermeiros existentes, eliminando ocorrências repetidas
+
+-- 2 Subconsultas
+SELECT DISTINCT *	
+FROM triagem_hosp_leiria_g22.utente
+GROUP BY nome_utente ASC;
+
+-- 2 Consultas à escolha
+
+-- Consultar todos os dados da tabela utente
+
+
