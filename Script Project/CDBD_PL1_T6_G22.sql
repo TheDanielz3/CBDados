@@ -118,6 +118,9 @@ GROUP BY nome_utente ASC;
 
 -- 2 Consultas à escolha
 
+
+SELECT nome_utente as 'Nomes Utentes' fROM triagem_hosp_leiria_g22.utente order by nome_utente asc;  
+
 -- Consultar todos os dados da tabela utente
 
 
