@@ -1,13 +1,26 @@
 /*
-CDBD_PL1_T6_G?
+CDBD_PL1_T6_G22
 Sistema de Base de Dados para as urgências do "Hospital de Leiria" baseada na Triagem de Manchester
 Daniel Batista, estudante Nº 2171836
 Diogo Alpendre, estudante Nº 2170324
 */
+-- Drop the database
+ DROP DATABASE IF EXISTS triagem_hosp_leiria_g22;
+
+
 
 -- Criação da base de dados
 
-CREATE DATABASE triagem_hosp_leiria_g22;
+ CREATE DATABASE triagem_hosp_leiria_g22;
+
+-- Drops the tables
+
+DROP TABLE IF EXISTS triagemhospleiriag22.utente;
+DROP TABLE IF EXISTS triagemhospleiriag22.enfermeiro;
+DROP TABLE IF EXISTS triagemhospleiriag22.sala;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem_manchester;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem;
+
 
 -- Criação das tabelas
 
@@ -31,7 +44,7 @@ CREATE TABLE triagem_hosp_leiria_g22.sala
 (id INT AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(50) NOT NULL, obs VARCHAR(500));
 
 -- Tabela Triagem de Manchester (armazena a cor e a descrição de cada cor)
-CREATE TABLE triagem_hosp_leiria_g22.triagem_manchester_info
+CREATE TABLE triagem_hosp_leiria_g22.triagem_manchester
 (grau_prioridade VARCHAR(20) PRIMARY KEY, cor VARCHAR(8) NOT NULL, minutos_atendimento VARCHAR(50) NOT NULL);
 
 -- Tabela Triagem (processo)
@@ -74,12 +87,12 @@ VALUES
 (null, "Triagem/Consulta", "Apta à realização de triagens e consultas");
 
 -- Inserir dados na tabela triagem_manchester_info
-INSERT INTO triagem_hosp_leiria_g22.triagem_manchester_info (grau_prioridade, cor, minutos_atendimento)
+INSERT INTO triagem_hosp_leiria_g22.triagem_manchester (grau_prioridade, cor, minutos_atendimento)
 VALUES
 ("Emergente", "Vermelho", "Imediato"),
 ("Muito Urgente", "Laranja", "Até 10 minutos"),
 ("Urgente", "Amarelo", "Até 60 minutos"),
-("Pouco Urgente", "Verde", "Até 120 minutos"),*/
+("Pouco Urgente", "Verde", "Até 120 minutos"),
 ("Não Urgente", "Azul", "Até 240 minutos");
 
 -- Inserir dados na table triagem
