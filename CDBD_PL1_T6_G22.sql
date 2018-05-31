@@ -1,4 +1,4 @@
-material_triagem/*
+/*
 CDBD_PL1_T6_G22
 Sistema de Base de Dados para as urgências do "Hospital de Leiria" baseada na Triagem de Manchester
 Daniel Batista, estudante Nº 2171836
@@ -32,7 +32,7 @@ sexo CHAR(1) NOT NULL, obs VARCHAR(500));
 -- Tabela Enfermeiro
 CREATE TABLE triagem_hosp_leiria_g22.enfermeiro
 (id INT AUTO_INCREMENT PRIMARY KEY, nome_enfermeiro VARCHAR(20) NOT NULL, apelidos_enfermeiro VARCHAR(80) NOT NULL, 
-data_nasc_enfermeiro VARCHAR(11), morada_enfermeiro VARCHAR(100) NOT NULL, cod_postal_enfermeiro VARCHAR(50) NOT NULL,  
+data_nasc_enfermeiro VARCHAR(22), morada_enfermeiro VARCHAR(100) NOT NULL, cod_postal_enfermeiro VARCHAR(50) NOT NULL,  
 naturalidade_enfermeiro VARCHAR(100) NOT NULL, nacionalidade_enfermeiro VARCHAR(100) NOT NULL, 
 data_admissao VARCHAR(11), ced_prof INT NOT NULL, sexo CHAR(1), obs VARCHAR(500));
 
@@ -89,14 +89,12 @@ VALUES
 (null, "David", "da Silva Gomes", "Rua da Cruz Vermelha", "20/12/1955", "1234-567 Leiria", "Angola", "Portuguesa", "20/12/2017",
 19374, "Doutoramento em Medicina Geral pela Escola Superior de Medicina de Luanda"),
 (null, "Ana", "Pires Gonçalves", "Rua da Marinha Grande", "12/03/1980", "1855-345 Leiria", "Portugal", "Portuguesa", "01/01/2017",
-19576, "Mestrado em Medicina Interna pela Escola Superior de Saúde do Instituto Politécnico de Leiria", );
+19576, "Mestrado em Medicina Interna pela Escola Superior de Saúde do Instituto Politécnico de Leiria");
 
 -- Inserir dados na tabela sala
 INSERT INTO triagem_hosp_leiria_g22.sala (id, tipo, obs)
 VALUES
 (null, "Triagem", "Exclusiva a triagens"),
-(null, "Triagem/Consulta", "Apta à realização de triagens e consultas"),
-(null, "Triagem", "Apta apenas a triagens"),
 (null, "Triagem/Consulta", "Apta a triagens e consultas"),
 (null, "Triagem", "Apta apenas a triagens"),
 (null, "Triagem/Consulta", "Apta a triagens e consultas"),
@@ -111,7 +109,33 @@ VALUES
 (null, "Triagem", "Apta apenas a triagens"),
 (null, "Triagem/Consulta", "Apta a triagens e consultas"),
 (null, "Triagem", "Apta apenas a triagens"),
-(null, "Triagem/Consulta", "Apta a triagens e consultas");
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens"),
+(null, "Laboratorio de pesquisa","Apta apenas para fazer analises"),
+(null, "Triagem", "Exclusiva a triagens");
+
 
 -- Inserir dados na tabela triagem_manchester_info
 INSERT INTO triagem_hosp_leiria_g22.triagem_manchester (grau_prioridade, cor, minutos_atendimento)
@@ -130,26 +154,60 @@ VALUES
 (null, "04/03/2018", "Azul", 1, 2, 2, "Picado por abelha"),
 (null, "03/02/2018", "Verde", 1, 2, 3, "Ingestão acidental de pastilha de máquia de loiça"),
 (null, "14/03/2018", "Amarelo", 1, 2, 2, "Gastroentrite causada por frango estragado"),
-(null, "20/02/2018", "Vermelho", 1, 3, 2, "Nariz partido por queda a jogar futebol");
+(null, "20/02/2018", "Vermelho", 1, 3, 2, "Nariz partido por queda a jogar futebol"),
+(null, "22/03/2018","Verde",3,2,2,"Problemas de Diarreira");
 
 -- Inserir dados na tabela material_triagem
 INSERT INTO triagem_hosp_leiria_g22.material_triagem (id, nome, quantidade, obs, id_sala)
 VALUES
-(null, "Kit de primeiros socorros", 2, "Kit de primeiros socorros para rápidas interveções", 1),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 1),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 2),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 3),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 4),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 5),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 6),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 7),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 8),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 9),
+(null, "Kit de primeiros socorros", 1, "Kit de primeiros socorros para rápidas interveções", 10),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 1),
 (null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 2),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 3),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 4),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 5),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 6),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 7),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 8),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 9),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 10),
 (null, "Computador", 1, "Computador para aceder ao software para registar o utente, com o suporte da base de dados", 18),
 (null, "Rato para computador", 1, "Rato de computador para utilização pelo enfermeiro", 18),
 (null, "Teclado de computador", 1, "Teclado para utlização do enfermeiro no computador da sala", 18);
 
+
 -- Inserir dados na tabela limpezas
 INSERT INTO triagem_hosp_leiria_g22.limpezas (id, data_hora, descricao, id_sala)
 VALUES
-(),
-(),
-(),
-(),
-();
-
+(null,"12/05/2018-09:00","Limpeza rotina",1),
+(null,"12/05/2018-09:30","Limpeza rotina",2),
+(null,"12/05/2018-10:00","Limpeza rotina",3),
+(null,"12/05/2018-10:30","Limpeza rotina",4),
+(null,"12/05/2018-11:00","Limpeza rotina",5),
+(null,"12/05/2018-11:30","Limpeza rotina",6),
+(null,"12/05/2018-12:00","Limpeza rotina",7),
+(null,"12/05/2018-12:30","Limpeza rotina",8),
+(null,"12/05/2018-13:00","Limpeza rotina",9),
+(null,"12/05/2018-13:30","Limpeza rotina",10),
+(null,"12/05/2018-14:00","Limpeza rotina",11),
+(null,"12/05/2018-14:30","Limpeza rotina",12),
+(null,"12/05/2018-15:00","Limpeza rotina",13),
+(null,"12/05/2018-15:30","Limpeza rotina",14),
+(null,"12/05/2018-16:00","Limpeza rotina",15),
+(null,"12/05/2018-16:30","Limpeza rotina",16),
+(null,"12/05/2018-17:00","Limpeza rotina",17),
+(null,"12/05/2018-17:30","Limpeza rotina",18),
+(null,"12/05/2018-18:00","Limpeza rotina",19),
+(null,"12/05/2018-18:30","Limpeza rotina",20);
 -- Consultas
 
 -- 2 Consultas com grupos e joins
