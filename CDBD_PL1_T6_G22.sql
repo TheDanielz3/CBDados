@@ -1,13 +1,23 @@
-/*
-CDBD_PL1_T6_G?
+material_triagem/*
+CDBD_PL1_T6_G22
 Sistema de Base de Dados para as urgências do "Hospital de Leiria" baseada na Triagem de Manchester
 Daniel Batista, estudante Nº 2171836
 Diogo Alpendre, estudante Nº 2170324
 */
+-- Drop the database
+ DROP DATABASE IF EXISTS triagem_hosp_leiria_g22;
 
 -- Criação da base de dados
 
-CREATE DATABASE triagem_hosp_leiria_g22;
+ CREATE DATABASE triagem_hosp_leiria_g22;
+
+-- Drops the tables
+
+DROP TABLE IF EXISTS triagemhospleiriag22.utente;
+DROP TABLE IF EXISTS triagemhospleiriag22.enfermeiro;
+DROP TABLE IF EXISTS triagemhospleiriag22.sala;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem_manchester;
+DROP TABLE IF EXISTS triagemhospleiriag22.triagem;
 
 -- Criação das tabelas
 
@@ -24,14 +34,14 @@ CREATE TABLE triagem_hosp_leiria_g22.enfermeiro
 (id INT AUTO_INCREMENT PRIMARY KEY, nome_enfermeiro VARCHAR(20) NOT NULL, apelidos_enfermeiro VARCHAR(80) NOT NULL, 
 data_nasc_enfermeiro VARCHAR(11), morada_enfermeiro VARCHAR(100) NOT NULL, cod_postal_enfermeiro VARCHAR(50) NOT NULL,  
 naturalidade_enfermeiro VARCHAR(100) NOT NULL, nacionalidade_enfermeiro VARCHAR(100) NOT NULL, 
-data_admissao VARCHAR(11), ced_prof INT NOT NULL, obs VARCHAR(500));
+data_admissao VARCHAR(11), ced_prof INT NOT NULL, sexo CHAR(1), obs VARCHAR(500));
 
 -- Tabela Sala
 CREATE TABLE triagem_hosp_leiria_g22.sala
 (id INT AUTO_INCREMENT PRIMARY KEY, tipo VARCHAR(50) NOT NULL, obs VARCHAR(500));
 
 -- Tabela Triagem de Manchester (armazena a cor e a descrição de cada cor)
-CREATE TABLE triagem_hosp_leiria_g22.triagem_manchester_info
+CREATE TABLE triagem_hosp_leiria_g22.triagem_manchester
 (grau_prioridade VARCHAR(20) PRIMARY KEY, cor VARCHAR(8) NOT NULL, minutos_atendimento VARCHAR(50) NOT NULL);
 
 -- Tabela Triagem (processo)
@@ -40,7 +50,17 @@ CREATE TABLE triagem_hosp_leiria_g22.triagem_manchester_info
  id_utente INT, id_enfermeiro INT, id_sala INT, obs VARCHAR(500), FOREIGN KEY (cor_triagem) REFERENCES triagem_manchester_info(cor),
  FOREIGN KEY (id_utente) REFERENCES utente(id), FOREIGN KEY (id_enfermeiro) REFERENCES enfermeiro(id), 
  FOREIGN KEY (id_sala) REFERENCES sala(id));
-  
+
+-- Tabela Material de Triagem (material presente nas salas)
+CREATE TABLE triagem_hosp_leiria_g22.material_triagem
+(id INT AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(100) NOT NULL, quantidade INT NOT NULL, obs VARCHAR(500), id_sala INT,
+FOREIGN KEY (id_sala) REFERENCES sala(id));
+
+-- Tabela Limpeza de salas (armazena informação sobre as limpezas efetuadas e as respetivas salas)
+CREATE TABLE triagem_hosp_leiria_g22.limpezas
+(id INT AUTO_INCREMENT PRIMARY KEY, data_hora VARCHAR(50) NOT NULL, descricao VARCHAR(500), id_sala INT,
+FOREIGN KEY (id_sala) REFERENCES sala(id));
+
  -- Inserir dados na tabela utente
  INSERT INTO triagem_hosp_leiria_g22.utente (id, cc, nif, nsns, nome_utente, apelidos_utente, data_nasc_utente, morada_utente, cod_postal_utente,
  naturalidade_utente, nacionalidade_utente, telemovel, email, tipo_sangue, altura, problemas_saude, medicacao, alergias, sexo, obs)
@@ -65,21 +85,41 @@ VALUES
 (null, "Diogo", "Miguel Gomes", "04/12/1970", "Rua das Flores", "1223-363 Parceiros", "Portugal", "Portuguesa", 
 "12/05/2018", 19234, "Mestrado em Medicina Geral pela Escola Superior de Saúde do Instituto Politécnico de Leiria"),
 (null, "Miguel", "Alves", "19/03/1985", "Rua dos Leirienses", "1847-203 Leiria", "Portugal", "Portuguesa",
-"08/04/2018", 18456, "Doutoramento em Medicina Geral pela Escola Superior de Saúde do Instituto Politécnico de Leiria");
+"08/04/2018", 18456, "Doutoramento em Medicina Geral pela Escola Superior de Saúde do Instituto Politécnico de Leiria"),
+(null, "David", "da Silva Gomes", "Rua da Cruz Vermelha", "20/12/1955", "1234-567 Leiria", "Angola", "Portuguesa", "20/12/2017",
+19374, "Doutoramento em Medicina Geral pela Escola Superior de Medicina de Luanda"),
+(null, "Ana", "Pires Gonçalves", "Rua da Marinha Grande", "12/03/1980", "1855-345 Leiria", "Portugal", "Portuguesa", "01/01/2017",
+19576, "Mestrado em Medicina Interna pela Escola Superior de Saúde do Instituto Politécnico de Leiria", );
 
 -- Inserir dados na tabela sala
 INSERT INTO triagem_hosp_leiria_g22.sala (id, tipo, obs)
 VALUES
 (null, "Triagem", "Exclusiva a triagens"),
-(null, "Triagem/Consulta", "Apta à realização de triagens e consultas");
+(null, "Triagem/Consulta", "Apta à realização de triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas"),
+(null, "Triagem", "Apta apenas a triagens"),
+(null, "Triagem/Consulta", "Apta a triagens e consultas");
 
 -- Inserir dados na tabela triagem_manchester_info
-INSERT INTO triagem_hosp_leiria_g22.triagem_manchester_info (grau_prioridade, cor, minutos_atendimento)
+INSERT INTO triagem_hosp_leiria_g22.triagem_manchester (grau_prioridade, cor, minutos_atendimento)
 VALUES
 ("Emergente", "Vermelho", "Imediato"),
 ("Muito Urgente", "Laranja", "Até 10 minutos"),
 ("Urgente", "Amarelo", "Até 60 minutos"),
-("Pouco Urgente", "Verde", "Até 120 minutos"),*/
+("Pouco Urgente", "Verde", "Até 120 minutos"),
 ("Não Urgente", "Azul", "Até 240 minutos");
 
 -- Inserir dados na table triagem
@@ -92,19 +132,39 @@ VALUES
 (null, "14/03/2018", "Amarelo", 1, 2, 2, "Gastroentrite causada por frango estragado"),
 (null, "20/02/2018", "Vermelho", 1, 3, 2, "Nariz partido por queda a jogar futebol");
 
+-- Inserir dados na tabela material_triagem
+INSERT INTO triagem_hosp_leiria_g22.material_triagem (id, nome, quantidade, obs, id_sala)
+VALUES
+(null, "Kit de primeiros socorros", 2, "Kit de primeiros socorros para rápidas interveções", 1),
+(null, "Fitas coloridas", 100, "Fitas para identificar o grau de prioridade do utente", 2),
+(null, "Computador", 1, "Computador para aceder ao software para registar o utente, com o suporte da base de dados", 18),
+(null, "Rato para computador", 1, "Rato de computador para utilização pelo enfermeiro", 18),
+(null, "Teclado de computador", 1, "Teclado para utlização do enfermeiro no computador da sala", 18);
+
+-- Inserir dados na tabela limpezas
+INSERT INTO triagem_hosp_leiria_g22.limpezas (id, data_hora, descricao, id_sala)
+VALUES
+(),
+(),
+(),
+(),
+();
+
 -- Consultas
 
 -- 2 Consultas com grupos e joins
-SELECT DISTINCT id_enfermeiro FROM triagem_hosp_leiria_g22.triagem;
+-- Daniel
+
+
+-- Diogo
+
+
 -- Seleciona os IDs dos enfermeiros existentes, eliminando ocorrências repetidas
 
 -- 2 Subconsultas
-SELECT DISTINCT *	
-FROM triagem_hosp_leiria_g22.utente
-GROUP BY nome_utente ASC;
+
 
 -- 2 Consultas à escolha
-
 -- Consultar todos os dados da tabela utente
 
 
