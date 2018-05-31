@@ -88,6 +88,10 @@ VALUES
 "08/04/2018", 18456, "Doutoramento em Medicina Geral pela Escola Superior de Saúde do Instituto Politécnico de Leiria"),
 (null, "David", "da Silva Gomes", "Rua da Cruz Vermelha", "20/12/1955", "1234-567 Leiria", "Angola", "Portuguesa", "20/12/2017",
 19374, "Doutoramento em Medicina Geral pela Escola Superior de Medicina de Luanda"),
+(null,"Luis","dos Santos","Rua das bananas Azuis","25/12/1971","2430-525 Marinha Grande","Alemanha","Portuguesa","23/05/2016",
+19323,"Licenciatura em Medicina Geral pela Faculdade de Letras"),
+(null,"Mohamed","afzal","Rua da polvora preta","20/05/1984","1234-567 Leiria","Somália","Somáliano","01/01/2018",
+12345,"Licenciado em Explosivos Corporais"),
 (null, "Ana", "Pires Gonçalves", "Rua da Marinha Grande", "12/03/1980", "1855-345 Leiria", "Portugal", "Portuguesa", "01/01/2017",
 19576, "Mestrado em Medicina Interna pela Escola Superior de Saúde do Instituto Politécnico de Leiria");
 
@@ -155,7 +159,10 @@ VALUES
 (null, "03/02/2018", "Verde", 1, 2, 3, "Ingestão acidental de pastilha de máquia de loiça"),
 (null, "14/03/2018", "Amarelo", 1, 2, 2, "Gastroentrite causada por frango estragado"),
 (null, "20/02/2018", "Vermelho", 1, 3, 2, "Nariz partido por queda a jogar futebol"),
-(null, "22/03/2018","Verde",3,2,2,"Problemas de Diarreira");
+(null, "22/03/2018","Verde",3,2,2,"Problemas de Diarreira"),
+(null,"22/03/2018","Amarelo",2,4,1,"Queda porque uma formiga atirou ao chão"),
+(null,"22703/2018","Verde",5,1,3,"Dor na ponta da unha"),
+(null, "22/03/2018","Vermelho",3,1,4,"Paragem cardio Vascular");
 
 -- Inserir dados na tabela material_triagem
 INSERT INTO triagem_hosp_leiria_g22.material_triagem (id, nome, quantidade, obs, id_sala)
@@ -210,19 +217,32 @@ VALUES
 (null,"12/05/2018-18:30","Limpeza rotina",20);
 -- Consultas
 
+
+
 -- 2 Consultas com grupos e joins
+
+
+
 -- Daniel
 
 
 -- Diogo
 
 
+
 -- Seleciona os IDs dos enfermeiros existentes, eliminando ocorrências repetidas
+
+
+
 
 -- 2 Subconsultas
 
 
--- 2 Consultas à escolha
--- Consultar todos os dados da tabela utente
 
+
+-- 2 Consultas à escolha
+
+
+
+-- Consultar todos os dados da tabela utente
 
