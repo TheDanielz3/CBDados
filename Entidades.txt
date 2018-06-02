@@ -1,0 +1,129 @@
+Base de dados: triagem_manchester
+
+Entidades: utente, enfermeiro, triagem_manchester_info, sala, triagem
+
+utente (id--, cc, nif, nsns, nome_utente, apelidos_utente, data_nasc_utente, morada_utente, cod_postal_utente, naturalidade_utente, nacionalidade_utente,
+tipo_sangue, altura, medicacao----, problemas_saude----, alergias----, sexo, obs----);
+
+enfermeiro (id--, nome_enfermeiro, apelidos_enfermeiro, data_nasc_enfermeiro, morada_enfermeiro, cod_postal_enfermeiro, naturalidade_enfermeiro, nacionalidade_enfermeiro, data_admissao, obs);
+
+sala (id--, tipo, obs);
+
+triagem_manchester_info (cor--, obs);
+
+triagem (id, data_hora, cor_triagem--- id_utente---, id_enfermeiro---, id_sala---, obs)
+
+
+
+
+/*CREATE TABLE utente (
+	
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cc INT NOT NULL,
+    nif INT(9),
+    nsns INT NOT NULL,
+    nome_utente VARCHAR(20) NOT NULL,
+    apelidos_utente VARCHAR(80) NOT NULL,
+	data_nasc_utente VARCHAR(11) NOT NULL,
+    morada_utente VARCHAR(500) NOT NULL,
+    cod_postal VARCHAR(20) NOT NULL,
+    naturalidade VARCHAR(50) NOT NULL,
+    nacionalidade_utente VARCHAR(100) NOT NULL,
+    tipo_sangue VARCHAR(3) NOT NULL,
+    altura INT(3) NOT NULL,
+    medicacao VARCHAR(500),
+    problemas_saude VARCHAR(500),
+    alergias VARCHAR(500),
+    sexo CHAR(1) NOT NULL,
+    obs VARCHAR(500)
+);*/
+
+/*CREATE TABLE enfermeiro (
+	
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_enfermeiro VARCHAR(20),
+    apelidos_enfermeiro VARCHAR(80),
+    data_nasc_enfermeiro VARCHAR(11),
+    morada_enfermeiro VARCHAR(500),
+    nacionalidade_enfermeiro VARCHAR(500) NOT NULL,
+    data_admissao VARCHAR(11) NOT NULL,
+    obs VARCHAR(500)
+);*/
+
+/*CREATE TABLE info_triagem_manchester (
+
+	cor VARCHAR(8) PRIMARY KEY,
+    obs VARCHAR(500) NOT NULL
+);*/
+
+/*
+CREATE TABLE sala (
+
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    tipo VARCHAR(50) NOT NULL
+);*/
+
+/*CREATE TABLE triagem (
+
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    cor_triagem  VARCHAR(8),
+    data_hora DATETIME NOT NULL,
+	id_utente INT,
+    id_enfermeiro INT,
+    id_sala INT,
+    obs VARCHAR(500),
+    FOREIGN KEY (cor_triagem) REFERENCES triagem_manchester(cor) ON DELETE CASCADE,
+    FOREIGN KEY (id_enfermeiro) REFERENCES enfermeiro(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_utente) REFERENCES utente(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_sala) REFERENCES sala(id) ON DELETE CASCADE
+);*/
+
+/*INSERT INTO utente (cc, nif, nsns, nome_utente, apelidos_utente, data_nasc_utente, morada_utente, cod_postal, naturalidade, 
+nacionalidade_utente, tipo_sangue, altura, medicacao, problemas_saude, alergias, sexo, obs)
+VALUES
+(38495084, 564922233, 94059698, "Daniel", "Correia Batista", "24/07/1998", "Rua da Marinha Grande", "1736-345 Leiria",
+"Portugal", "Portuguesa", "A-", 180, null, null, "Alergia moderada ao pólen", "M", null), 
+(58587845, 384534321, 23863570, "Diogo", "Cruz Alpendre", "04/03/1999", "Rua de Lisboa", "1849-385 Lisboa",  
+"Portugal", "Portuguesa", "O-", 170, null, null, "Rinite Alérgica", "M", null),
+(95498588, 384756498, 95847474, "João", "Miguel Alves", "02/10/2003", "Rua João V", "1332-443 Lisboa",
+"Portugal", "Portuguesa", "A+", 190, null, null, null, "M", "Incontinência crónica"),
+(84747335, 474894744, 38543211, "Francisco", "da Silva Cardoso", "06/12/1983", "Rua do Mercado da Ribeira", "1984-364 Leiria",
+"Portugal", "Portuguesa", "B-", 165, "Benuron para dor de dentes", "Dor de dentes crónica", null, "M", null),
+(93090444, 234567123, 87434434, "Sofia", "Menezes", "13/03/1963", "Avenida da Liberdade", "1028-174 Lisboa", "Portugal", "Portuguesa",
+"O+", 162, "Nasomet via oral", null, null, "F", null),
+(10293894, 173846345, 92392929, "Otávio", "Machuca", "02/10/2003", "Rua Alexandre Esteves Constantino", "2934-832 Alcântara",
+"Portugal", "Portuguesa", "AB+", 172, null, null, null, "M", null),
+(18390405, 746398273, 29384931, "Maria", "António", "08/12/1966", "Rua José Afontes", "1750-413", "Angola", "Portuguesa",
+"A+", 179, null, null, null, "F", null),
+(75847473, 827262823, 18237324, "Mário", "Glossário", "07/11/1955", "Rua das Fontainhas", "1734-223", "Portugal", "Portuguesa",
+"B+", 157, null, "Hérnia intestinal", "Nozes", "M", null),
+(92848372, 182738473, 18273947, "Ana", "Maria Rodrigues", "12/11/1943", "Rua da Vida", "1234-567 Batalha", "Portugal", "Portuguesa", "O-", 154, 
+null, null, "Tomate", "F", null),
+(91827465, 278384765, 12345678, "Manuel", "Antunes Jesus", "25/04/1974", "Rua do 25 de Abril", "1974-040 Santarém", "Portugal", "Portuguesa", "A+", 180,
+null, null, null, "M", "Toxicodependente em fase de reabilitação");*/
+
+
+/*CREATE TABLE enfermeiro (
+	
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome_enfermeiro VARCHAR(20) NOT NULL,
+    apelidos_enfermeiro VARCHAR(80) NOT NULL,
+    data_nasc_enfermeiro VARCHAR(11) NOT NULL,
+    morada_enfermeiro VARCHAR(500) NOT NULL,
+    cod_postal_enfermeiro(30) NOT NULL,
+    naturta
+    nacionalidade_enfermeiro VARCHAR(500) NOT NULL,
+    data_admissao VARCHAR(11) NOT NULL,
+    obs VARCHAR(500)
+);*/
+
+INSERT INTO enfermeiro (nome_enfermeiro, apelidos_enfermeiro, data_nasc_enfermeiro, morada_enfermeiro, 
+cod_postal_utente, nacionalidade_enfermeiro, data_admissao)
+VALUES 
+("Miguel", "Silva Alves", "12/03/1966", "Rua do Brasil", "1236-485 Lisboa", ""),
+(),
+(),
+(),
+()
+);
+	
